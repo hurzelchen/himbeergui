@@ -1,6 +1,7 @@
 ---
 BasedOnStyle: GNU
 AccessModifierOffset: -4
+AllowShortFunctionsOnASingleLine: Empty
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 BreakBeforeBraces: Custom
@@ -11,6 +12,7 @@ BraceWrapping:
   AfterClass: true
   AfterFunction: true
   BeforeElse: true
+ColumnLimit: 100
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 Cpp11BracedListStyle: true
 IndentWidth: 4

@@ -17,10 +17,12 @@ equals(QT_ARCH, arm64) {
 }
 
 HEADERS += \
-    HimbeerMainWidget.h
+    HimbeerMainWidget.h \
+    HttpServer.h
 
 SOURCES = main.cpp \
-    HimbeerMainWidget.cpp
+    HimbeerMainWidget.cpp \
+    HttpServer.cpp
 
 OTHER_FILES += \
     .clang-format \

@@ -15,11 +15,17 @@ repos:
                '-x', 'c++',
                '-I/usr/include/x86_64-linux-gnu/qt5/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+               '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']
       - id: cppcheck
         args: ['--language=c++']
       - id: cpplint
-        args: ['--filter=-build/header_guard,-legal/copyright,-whitespace/braces,-whitespace/comments,-whitespace/indent,-whitespace/newline',
+        args: ['--filter=-build/header_guard,
+                         -legal/copyright,
+                         -whitespace/braces,
+                         -whitespace/comments,
+                         -whitespace/indent,
+                         -whitespace/newline',
                '--linelength=100']
   - repo: https://github.com/hurzelchen/pocc-pre-commit-hooks
     rev: v1.3.6
@@ -33,4 +39,5 @@ repos:
               '-I/usr/lib/llvm-14/lib/clang/14.0.0/include/',
               '-I/usr/include/x86_64-linux-gnu/qt5/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+              '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']

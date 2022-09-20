@@ -1,4 +1,5 @@
 [
   { symbol: [ "Q_OBJECT", "private", "<QObject>", "public" ] },
+  { symbol: [ "slots", "private", "<QObject>", "public" ] },
   { ref: "/usr/share/include-what-you-use/qt5_11.imp" }
 ]
