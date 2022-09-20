@@ -1,0 +1,13 @@
+---
+BasedOnStyle: GNU
+AccessModifierOffset: -4
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: Always
+  AfterClass: true
+  AfterFunction: true
+  BeforeElse: true
+IndentWidth: 4
+SpaceBeforeParens: ControlStatements

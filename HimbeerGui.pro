@@ -17,3 +17,8 @@ equals(QT_ARCH, arm64) {
 }
 
 SOURCES = main.cpp
+
+DISTFILES += \
+    .clang-format \
+    .gitignore \
+    .pre-commit-config.yaml
