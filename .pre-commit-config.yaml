@@ -16,3 +16,19 @@ repos:
                '-I/usr/include/x86_64-linux-gnu/qt5/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']
+      - id: cppcheck
+      - id: cpplint
+        args: ['--filter=-legal/copyright,-whitespace/braces,-whitespace/newline',
+               '--linelength=100']
+  - repo: https://github.com/hurzelchen/pocc-pre-commit-hooks
+    rev: v1.3.6
+    hooks:
+      - id: include-what-you-use
+        args: ['-Xiwyu',
+               '--mapping_file=/usr/share/include-what-you-use/qt5_11.imp',
+               '-fPIC',
+               '-I/usr/include/c++/11/',
+               '-I/usr/lib/llvm-14/lib/clang/14.0.0/include/',
+               '-I/usr/include/x86_64-linux-gnu/qt5/',
+               '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+               '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']

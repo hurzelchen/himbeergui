@@ -1,7 +1,11 @@
 #include <QApplication>
+#include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QMainWindow>
 #include <QSizePolicy>
+#include <QStaticStringData>
+#include <QString>
+#include <QStringLiteral>
 
 static const int HIMBEERGUI_WIDTH = 1280;
 static const int HIMBEERGUI_HEIGHT = 400;
