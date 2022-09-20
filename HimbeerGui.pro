@@ -16,9 +16,15 @@ equals(QT_ARCH, arm64) {
     LIBS += -L/usr/lib/aarch64-linux-gnu/
 }
 
-SOURCES = main.cpp
+HEADERS += \
+    HimbeerMainWidget.h
 
-DISTFILES += \
+SOURCES = main.cpp \
+    HimbeerMainWidget.cpp
+
+OTHER_FILES += \
     .clang-format \
+    .clang-tidy \
     .gitignore \
+    .iwyu-mapping.imp \
     .pre-commit-config.yaml

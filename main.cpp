@@ -1,7 +1,8 @@
+#include "HimbeerMainWidget.h"
+
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
-#include <QMainWindow>
 #include <QSizePolicy>
 #include <QStaticStringData>
 #include <QString>
@@ -17,22 +18,22 @@ int main(int argc, char **argv)
     QCommandLineParser commandLineParser;
 
     QCommandLineOption fullscreenOption(
-        { "f", "fullscreen" }, QStringLiteral("Show application fullscreen"));
+        {"f", "fullscreen"}, QStringLiteral("Show application fullscreen"));
     commandLineParser.addOption(fullscreenOption);
 
     commandLineParser.process(app);
 
-    QMainWindow mainWindow(nullptr);
+    HimbeerMainWidget mainWidget(nullptr);
 
     if (commandLineParser.isSet(fullscreenOption))
     {
-        mainWindow.showFullScreen();
+        mainWidget.showFullScreen();
     }
     else
     {
-        mainWindow.setFixedSize(HIMBEERGUI_WIDTH, HIMBEERGUI_HEIGHT);
-        mainWindow.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        mainWindow.show();
+        mainWidget.setFixedSize(HIMBEERGUI_WIDTH, HIMBEERGUI_HEIGHT);
+        mainWidget.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        mainWidget.show();
     }
 
     int returnValue = QApplication::exec();

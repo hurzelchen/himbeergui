@@ -4,10 +4,15 @@ AccessModifierOffset: -4
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 BreakBeforeBraces: Custom
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: AfterColon
 BraceWrapping:
   AfterControlStatement: Always
   AfterClass: true
   AfterFunction: true
   BeforeElse: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+Cpp11BracedListStyle: true
 IndentWidth: 4
+PackConstructorInitializers: Never
 SpaceBeforeParens: ControlStatements
