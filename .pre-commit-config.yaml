@@ -36,6 +36,8 @@ repos:
                          -whitespace/indent,
                          -whitespace/newline',
                '--linelength=100']
+      - id: uncrustify
+        args: ['-c', '.uncrustify.cfg']
   - repo: https://github.com/hurzelchen/pocc-pre-commit-hooks
     rev: v1.3.6
     hooks:

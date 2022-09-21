@@ -29,4 +29,5 @@ OTHER_FILES += \
     .clang-tidy \
     .gitignore \
     .iwyu-mapping.imp \
-    .pre-commit-config.yaml
+    .pre-commit-config.yaml \
+    .uncrustify.cfg
