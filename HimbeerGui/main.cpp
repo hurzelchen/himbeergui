@@ -17,8 +17,8 @@ int main(int argc, char **argv)
 
     QCommandLineParser commandLineParser;
 
-    QCommandLineOption fullscreenOption(
-        {"f", "fullscreen"}, QStringLiteral("Show application fullscreen"));
+    QCommandLineOption fullscreenOption({"f", "fullscreen"},
+                                        QStringLiteral("Show application fullscreen"));
     commandLineParser.addOption(fullscreenOption);
 
     commandLineParser.process(app);

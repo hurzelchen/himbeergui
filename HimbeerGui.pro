@@ -1,28 +1,10 @@
-TEMPLATE = app
+TEMPLATE = subdirs
+CONFIG += ordered
 
-CONFIG(debug, debug|release) {
-    TARGET = himbeerguidbg
-} else {
-    TARGET = himbeergui
-}
-
-QT = \
-    core \
-    gui \
-    network \
-    widgets \
-
-equals(QT_ARCH, arm64) {
-    LIBS += -L/usr/lib/aarch64-linux-gnu/
-}
-
-HEADERS += \
-    HimbeerMainWidget.h \
-    HttpServer.h
-
-SOURCES = main.cpp \
-    HimbeerMainWidget.cpp \
-    HttpServer.cpp
+SUBDIRS = \
+    LibHimbeer \
+    HimbeerGui \
+    TestHimbeer
 
 OTHER_FILES += \
     .clang-format \

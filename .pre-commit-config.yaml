@@ -32,7 +32,8 @@ repos:
                '-I/usr/include/x86_64-linux-gnu/qt5/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
-               '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']
+               '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
+               '-ILibHimbeer/']
       - id: cppcheck
         args: ['--language=c++']
       - id: cpplint
@@ -56,4 +57,5 @@ repos:
               '-I/usr/include/x86_64-linux-gnu/qt5/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
-              '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/']
+              '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
+              '-ILibHimbeer/']
