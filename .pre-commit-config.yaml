@@ -25,6 +25,7 @@ repos:
     rev: v1.3.5
     hooks:
       - id: clang-format
+        args: ['-i']
       - id: clang-tidy
         args: ['--config-file=.clang-tidy',
                '--',

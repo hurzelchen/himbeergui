@@ -25,3 +25,6 @@ SOURCES += \
     HttpRoute.cpp \
     HttpServer.cpp \
     QTcpServerWrapper.cpp
+
+OTHER_FILES += \
+    include.pri

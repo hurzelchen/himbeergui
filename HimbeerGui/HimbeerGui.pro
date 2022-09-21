@@ -12,11 +12,7 @@ QT = \
     network \
     widgets \
 
-INCLUDEPATH += \
-    $${PWD}/../LibHimbeer/
-
-LIBS += \
-    -L$${OUT_PWD}/../LibHimbeer/ -lhimbeer
+include(../LibHimbeer/include.pri)
 
 equals(QT_ARCH, arm64) {
     LIBS += -L/usr/lib/aarch64-linux-gnu/
