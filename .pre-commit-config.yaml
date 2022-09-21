@@ -49,8 +49,10 @@ repos:
     rev: v1.3.6
     hooks:
      - id: include-what-you-use
-       args: ['-Xiwyu',
-              '--mapping_file=.iwyu-mapping.imp',
+       args: ['-Xiwyu', '--mapping_file=.iwyu-mapping.imp',
+              '-Xiwyu', '--max_line_length=100',
+              '-Xiwyu', '--no_comments',
+              '-Xiwyu', '--quoted_includes_first',
               '-fPIC',
               '-x', 'c++',
               '-I/usr/include/c++/11/',

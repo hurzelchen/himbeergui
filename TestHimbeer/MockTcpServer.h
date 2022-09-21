@@ -7,7 +7,10 @@
 #include <QHostAddress>
 #include <QObject>
 #include <QString>
+#include <QVector>
 #include <QtGlobal>
+
+class AbstractTcpSocket;
 
 class MockTcpServer : public AbstractTcpServer
 {
@@ -22,8 +25,16 @@ public:
 
     void mockRequest(const QByteArray &requestContent);
 
+    AbstractTcpSocket *nextPendingConnection() override;
+
 private:
+    struct MockRequest {
+        QByteArray requestData;
+    };
+
     bool m_listening = false;
+
+    QVector<MockRequest> m_mockRequests{};
 };
 
 #endif // MOCKTCPSERVER_H

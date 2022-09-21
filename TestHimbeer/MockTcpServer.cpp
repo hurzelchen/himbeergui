@@ -1,5 +1,9 @@
 #include "MockTcpServer.h"
 
+#include "MockTcpSocket.h"
+
+class AbstractTcpSocket;
+
 MockTcpServer::MockTcpServer(QObject *parent)
     : AbstractTcpServer{parent},
       m_listening{false}
@@ -23,6 +27,24 @@ bool MockTcpServer::listen(const QHostAddress & /*address*/, quint16 port)
 
 void MockTcpServer::mockRequest(const QByteArray &requestContent)
 {
-    // TODO(hurzelchen): implement
-    Q_UNUSED(requestContent)
+    MockRequest mockRequest;
+    mockRequest.requestData = requestContent;
+
+    m_mockRequests.append(mockRequest);
+
+    emit newConnection();
+}
+
+AbstractTcpSocket *MockTcpServer::nextPendingConnection()
+{
+    if (m_mockRequests.count() > 0)
+    {
+        MockRequest mockRequest = m_mockRequests.takeFirst();
+
+        return new MockTcpSocket(mockRequest.requestData, this);
+    }
+    else
+    {
+        return nullptr;
+    }
 }

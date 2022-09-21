@@ -2,6 +2,7 @@
 
 #include "AbstractTcpServer.h"
 #include "QTcpServerWrapper.h"
+#include "QTcpSocketWrapper.h"
 
 #include <QHostAddress>
 #include <QTcpServer>
@@ -34,5 +35,7 @@ bool HttpServer::listen()
 
 void HttpServer::newConnection()
 {
+    AbstractTcpSocket *socket = m_tcpServer->nextPendingConnection();
+
     // TODO(hurzelchen): implement
 }

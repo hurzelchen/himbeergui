@@ -6,6 +6,8 @@
 #include <QString>
 #include <QtGlobal>
 
+class AbstractTcpSocket;
+
 class AbstractTcpServer : public QObject
 {
     Q_OBJECT
@@ -18,6 +20,8 @@ public:
     virtual void close() = 0;
 
     virtual bool listen(const QHostAddress &address = QHostAddress::Any, quint16 port = 0) = 0;
+
+    virtual AbstractTcpSocket *nextPendingConnection() = 0;
 
 signals:
     void newConnection();

@@ -8,6 +8,7 @@
 #include <QString>
 #include <QtGlobal>
 
+class AbstractTcpSocket;
 class QTcpServer;
 
 class QTcpServerWrapper : public AbstractTcpServer
@@ -21,6 +22,8 @@ public:
     void close() override;
 
     bool listen(const QHostAddress &address = QHostAddress::Any, quint16 port = 0) override;
+
+    AbstractTcpSocket *nextPendingConnection() override;
 
 private:
     QTcpServer *m_implementation;
