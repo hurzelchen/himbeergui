@@ -1,12 +1,12 @@
 #ifndef QTCPSERVERWRAPPER_H
 #define QTCPSERVERWRAPPER_H
 
+#include "AbstractTcpServer.h"
+
 #include <QHostAddress>
 #include <QObject>
 #include <QString>
 #include <QtGlobal>
-
-#include "AbstractTcpServer.h"
 
 class QTcpServer;
 

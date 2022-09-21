@@ -1,13 +1,13 @@
 #ifndef MOCKTCPSERVER_H
 #define MOCKTCPSERVER_H
 
+#include "AbstractTcpServer.h"
+
 #include <QByteArray>
 #include <QHostAddress>
 #include <QObject>
 #include <QString>
 #include <QtGlobal>
-
-#include "AbstractTcpServer.h"
 
 class MockTcpServer : public AbstractTcpServer
 {
