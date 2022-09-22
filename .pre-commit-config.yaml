@@ -46,23 +46,22 @@ repos:
                          -whitespace/newline',
                '--linelength=100']
   - repo: https://github.com/hurzelchen/pre-commit-hooks
-    rev: 411a882
+    rev: 91efe08
     hooks:
      - id: clazy
        args: ['-Xclang', '-plugin-arg-clazy',
-              '-Xclang', 'level0,level1,level2,ifndef-define-typo,isempty-vs-count,
-                          signal-with-return-value,tr-non-literal,use-arrow-operator-instead-of-data
-                          use-chrono-in-qtimer',
+              '-Xclang', 'level0,level1,level2,ifndef-define-typo,isempty-vs-count,signal-with-return-value,tr-non-literal,use-arrow-operator-instead-of-data,use-chrono-in-qtimer',
               '-x', 'c++',
               '-fPIC',
               '-include/usr/include/stdint.h',
-              '-I/usr/include/c++/11/',
-              '-I/usr/lib/llvm-14/lib/clang/14.0.0/include/',
-              '-I/usr/include/x86_64-linux-gnu/qt5/',
-              '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
-              '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
-              '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
+              '-isystem/usr/include/c++/11/',
+              '-isystem/usr/lib/llvm-14/lib/clang/14.0.0/include/',
+              '-isystem/usr/include/x86_64-linux-gnu/qt5/',
+              '-isystem/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+              '-isystem/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
+              '-isystem/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
               '-ILibHimbeer/']
+       entry: env CLAZY_IGNORE_DIRS=/usr/.* hurzelchen-clazy
      - id: include-what-you-use
        args: ['-Xiwyu', '--mapping_file=.iwyu-mapping.imp',
               '-Xiwyu', '--max_line_length=100',
