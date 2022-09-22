@@ -45,8 +45,8 @@ repos:
                          -whitespace/indent,
                          -whitespace/newline',
                '--linelength=100']
-  - repo: https://github.com/hurzelchen/pocc-pre-commit-hooks
-    rev: v1.3.6
+  - repo: https://github.com/hurzelchen/pre-commit-hooks
+    rev: v0.1.0
     hooks:
      - id: include-what-you-use
        args: ['-Xiwyu', '--mapping_file=.iwyu-mapping.imp',
