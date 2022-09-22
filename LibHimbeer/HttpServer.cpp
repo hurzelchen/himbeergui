@@ -12,6 +12,7 @@ static const int LISTEN_PORT = 8000;
 
 HttpServer::HttpServer(QObject *parent)
     : QObject{parent},
+      AbstractHttpRoute(nullptr),
       m_tcpServer{new QTcpServerWrapper(this)}
 {
     connect(m_tcpServer, &AbstractTcpServer::newConnection, this, &HttpServer::newConnection);
@@ -38,4 +39,5 @@ void HttpServer::newConnection()
     AbstractTcpSocket *socket = m_tcpServer->nextPendingConnection();
 
     // TODO(hurzelchen): implement
+    Q_UNUSED(socket);
 }
