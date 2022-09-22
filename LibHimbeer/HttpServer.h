@@ -10,6 +10,7 @@ class AbstractTcpServer;
 
 class HttpServer : public QObject, public AbstractHttpRoute
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 public:
@@ -18,12 +19,12 @@ public:
 
     void close();
 
-    bool listen();
+    auto listen() -> bool;
 
 private slots:
     void newConnection();
 
-private:
+private: // NOLINT(readability-redundant-access-specifiers)
     AbstractTcpServer *m_tcpServer;
 };
 

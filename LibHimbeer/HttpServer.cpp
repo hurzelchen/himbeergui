@@ -29,7 +29,7 @@ void HttpServer::close()
     m_tcpServer->close();
 }
 
-bool HttpServer::listen()
+auto HttpServer::listen() -> bool
 {
     return m_tcpServer->listen(QHostAddress::Any, LISTEN_PORT);
 }
