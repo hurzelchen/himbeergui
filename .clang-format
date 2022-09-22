@@ -10,7 +10,9 @@ BreakInheritanceList: AfterColon
 BraceWrapping:
   AfterControlStatement: Always
   AfterClass: true
+  AfterEnum: true
   AfterFunction: true
+  AfterStruct: true
   BeforeElse: true
 ColumnLimit: 100
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
