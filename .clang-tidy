@@ -1,2 +1,2 @@
 ---
-Checks: 'cppcoreguidelines-*,llvm-*,-llvm-header-guard,readability-*'
+Checks: 'bugprone-*,cppcoreguidelines-*,llvm-*,-llvm-header-guard,modernize-*,performance-*,readability-*'
