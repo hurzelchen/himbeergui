@@ -28,7 +28,8 @@ public:
     AbstractTcpSocket *nextPendingConnection() override;
 
 private:
-    struct MockRequest {
+    struct MockRequest
+    {
         QByteArray requestData;
     };
 
