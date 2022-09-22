@@ -1,2 +1,3 @@
 ---
-Checks: 'bugprone-*,cppcoreguidelines-*,llvm-*,-llvm-header-guard,modernize-*,performance-*,readability-*'
+Checks: 'bugprone-*,clang-*,cppcoreguidelines-*,llvm-*,-llvm-header-guard,misc-*,modernize-*,performance-*,portability-*,readability-*'
+WarningsAsErrors: '*'
