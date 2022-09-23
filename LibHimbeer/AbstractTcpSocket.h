@@ -6,11 +6,11 @@
 
 class AbstractTcpSocket : public QObject
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 protected:
     explicit AbstractTcpSocket(QObject *parent = nullptr);
-    virtual ~AbstractTcpSocket() = default;
 };
 
 #endif // ABSTRACTTCPSOCKET_H

@@ -2,13 +2,31 @@
 
 #include "HttpRoute.h"
 
-AbstractHttpRoute::AbstractHttpRoute(AbstractHttpRoute *parent)
-    : m_parent{parent},
-      m_routes{}
+#include <utility>
+
+class QByteArray;
+
+AbstractHttpRoute::AbstractHttpRoute(std::weak_ptr<AbstractHttpRoute> parent)
+    : m_parent{std::move(parent)}
 {
 }
 
-HttpRoute &AbstractHttpRoute::route(const QString &route)
+void AbstractHttpRoute::get(const QString &get,
+                            const std::function<void(const QByteArray &)> &function)
+{
+    QString normalizedGet = get;
+    if (!normalizedGet.startsWith('/'))
+    {
+        normalizedGet.prepend('/');
+    }
+
+    if (!m_gets.contains(normalizedGet))
+    {
+        m_gets[normalizedGet] = function;
+    }
+}
+
+std::shared_ptr<HttpRoute> AbstractHttpRoute::route(const QString &route)
 {
     QString normalizedRoute = route;
     if (!normalizedRoute.startsWith('/'))
@@ -23,8 +41,9 @@ HttpRoute &AbstractHttpRoute::route(const QString &route)
 
     if (!m_routes.contains(normalizedRoute))
     {
-        m_routes[normalizedRoute] = new HttpRoute(normalizedRoute, this);
+        m_routes[normalizedRoute]
+            = std::make_shared<HttpRoute>(normalizedRoute, shared_from_this());
     }
 
-    return *(m_routes[normalizedRoute]);
+    return m_routes[normalizedRoute];
 }

@@ -10,11 +10,11 @@ class AbstractTcpSocket;
 
 class AbstractTcpServer : public QObject
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 protected:
     explicit AbstractTcpServer(QObject *parent = nullptr);
-    virtual ~AbstractTcpServer() = default;
 
 public:
     virtual void close() = 0;

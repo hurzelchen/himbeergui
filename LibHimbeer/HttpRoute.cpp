@@ -1,7 +1,10 @@
 #include "HttpRoute.h"
 
-HttpRoute::HttpRoute(const QString &route, AbstractHttpRoute *parent)
-    : AbstractHttpRoute{parent},
-      m_route{route}
+#include <memory>
+#include <utility>
+
+HttpRoute::HttpRoute(QString route, std::weak_ptr<AbstractHttpRoute> parent)
+    : AbstractHttpRoute{std::move(parent)},
+      m_route{std::move(route)}
 {
 }

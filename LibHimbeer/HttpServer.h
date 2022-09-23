@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QString>
 
+#include <memory>
+
 class AbstractTcpServer;
 
 class HttpServer : public QObject, public AbstractHttpRoute
@@ -15,17 +17,18 @@ class HttpServer : public QObject, public AbstractHttpRoute
 
 public:
     explicit HttpServer(QObject *parent = nullptr);
-    explicit HttpServer(AbstractTcpServer *replacementTcpServer, QObject *parent = nullptr);
+    explicit HttpServer(std::shared_ptr<AbstractTcpServer> replacementTcpServer,
+                        QObject *parent = nullptr);
 
     void close();
 
-    auto listen() -> bool;
+    bool listen();
 
 private slots:
     void newConnection();
 
 private: // NOLINT(readability-redundant-access-specifiers)
-    AbstractTcpServer *m_tcpServer;
+    std::shared_ptr<AbstractTcpServer> m_tcpServer;
 };
 
 #endif // HTTPSERVER_H

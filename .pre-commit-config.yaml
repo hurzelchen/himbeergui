@@ -39,6 +39,7 @@ repos:
         args: ['--language=c++']
       - id: cpplint
         args: ['--filter=-build/header_guard,
+                         -build/include_order,
                          -legal/copyright,
                          -readability/nolint,
                          -whitespace/braces,
@@ -66,7 +67,6 @@ repos:
      - id: include-what-you-use
        args: ['-Xiwyu', '--mapping_file=.iwyu-mapping.imp',
               '-Xiwyu', '--max_line_length=100',
-              '-Xiwyu', '--no_comments',
               '-Xiwyu', '--quoted_includes_first',
               '-x', 'c++',
               '-fPIC',

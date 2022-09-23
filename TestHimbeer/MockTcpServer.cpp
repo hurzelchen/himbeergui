@@ -5,8 +5,7 @@
 class AbstractTcpSocket;
 
 MockTcpServer::MockTcpServer(QObject *parent)
-    : AbstractTcpServer{parent},
-      m_listening{false}
+    : AbstractTcpServer{parent}
 {
 }
 
@@ -43,8 +42,6 @@ AbstractTcpSocket *MockTcpServer::nextPendingConnection()
 
         return new MockTcpSocket(mockRequest.requestData, this);
     }
-    else
-    {
-        return nullptr;
-    }
+
+    return nullptr;
 }

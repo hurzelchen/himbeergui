@@ -3,5 +3,6 @@
   { symbol: [ "Q_OBJECT", "private", "<QObject>", "public" ] },
   { symbol: [ "emit", "private", "<QObject>", "public" ] },
   { symbol: [ "signals", "private", "<QObject>", "public" ] },
-  { symbol: [ "slots", "private", "<QObject>", "public" ] }
+  { symbol: [ "slots", "private", "<QObject>", "public" ] },
+  { symbol: [ "qDebug", "private", "<QDebug>", "public" ] }
 ]

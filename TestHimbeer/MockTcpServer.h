@@ -14,6 +14,7 @@ class AbstractTcpSocket;
 
 class MockTcpServer : public AbstractTcpServer
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 public:

@@ -5,10 +5,12 @@
 
 #include <QString>
 
+#include <memory>
+
 class HttpRoute : public AbstractHttpRoute
 {
 public:
-    HttpRoute(const QString &route, AbstractHttpRoute *parent);
+    explicit HttpRoute(QString route, std::weak_ptr<AbstractHttpRoute> parent = {});
 
 private:
     QString m_route;

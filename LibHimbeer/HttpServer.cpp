@@ -8,20 +8,22 @@
 #include <QTcpServer>
 #include <QtGlobal>
 
+#include <utility>
+
 static const int LISTEN_PORT = 8000;
 
 HttpServer::HttpServer(QObject *parent)
     : QObject{parent},
-      AbstractHttpRoute(nullptr),
-      m_tcpServer{new QTcpServerWrapper(this)}
+      m_tcpServer{std::make_shared<QTcpServerWrapper>(this)}
 {
-    connect(m_tcpServer, &AbstractTcpServer::newConnection, this, &HttpServer::newConnection);
+    connect(m_tcpServer.get(), &AbstractTcpServer::newConnection, this, &HttpServer::newConnection);
 }
 
-HttpServer::HttpServer(AbstractTcpServer *replacementTcpServer, QObject *parent)
+HttpServer::HttpServer(std::shared_ptr<AbstractTcpServer> replacementTcpServer, QObject *parent)
     : QObject{parent},
-      m_tcpServer{replacementTcpServer}
+      m_tcpServer{std::move(replacementTcpServer)}
 {
+    connect(m_tcpServer.get(), &AbstractTcpServer::newConnection, this, &HttpServer::newConnection);
 }
 
 void HttpServer::close()
@@ -29,7 +31,7 @@ void HttpServer::close()
     m_tcpServer->close();
 }
 
-auto HttpServer::listen() -> bool
+bool HttpServer::listen()
 {
     return m_tcpServer->listen(QHostAddress::Any, LISTEN_PORT);
 }
