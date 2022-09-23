@@ -10,6 +10,8 @@
 #include <QVector>
 #include <QtGlobal>
 
+#include <memory>
+
 class AbstractTcpSocket;
 
 class MockTcpServer : public AbstractTcpServer
@@ -26,7 +28,7 @@ public:
 
     void mockRequest(const QByteArray &requestContent);
 
-    AbstractTcpSocket *nextPendingConnection() override;
+    std::unique_ptr<AbstractTcpSocket> nextPendingConnection() override;
 
 private:
     struct MockRequest

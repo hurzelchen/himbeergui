@@ -25,7 +25,7 @@ int main(int /*argc*/, char ** /*argv*/)
 
     httpServer->listen();
 
-    mockTcpServer->mockRequest(QStringLiteral("GET / HTTP1.1").toUtf8());
+    mockTcpServer->mockRequest(QStringLiteral("GET / HTTP1.1\n\n").toUtf8());
 
     httpServer->close();
 

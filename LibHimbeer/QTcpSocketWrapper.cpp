@@ -1,7 +1,12 @@
 #include "QTcpSocketWrapper.h"
 
-QTcpSocketWrapper::QTcpSocketWrapper(QTcpSocket *wrappedSocket, QObject *parent)
-    : AbstractTcpSocket{parent},
-      m_wrappedSocket{wrappedSocket}
+#include <QIODevice>
+#include <QTcpSocket>
+
+#include <memory>
+#include <utility>
+
+QTcpSocketWrapper::QTcpSocketWrapper(std::unique_ptr<QTcpSocket> wrappedSocket, QObject *parent)
+    : AbstractTcpSocket{std::move(wrappedSocket), parent}
 {
 }

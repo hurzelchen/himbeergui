@@ -38,8 +38,33 @@ bool HttpServer::listen()
 
 void HttpServer::newConnection()
 {
-    AbstractTcpSocket *socket = m_tcpServer->nextPendingConnection();
+    std::shared_ptr<AbstractTcpSocket> socket = m_tcpServer->nextPendingConnection();
 
-    // TODO(hurzelchen): implement
-    Q_UNUSED(socket);
+    connect(socket.get(),
+            &AbstractTcpSocket::readyRead,
+            this,
+            static_cast<void (HttpServer::*)()>(&HttpServer::readFromSocket));
+
+    if (socket->bytesAvailable() > 0)
+    {
+        readFromSocket(socket);
+    }
+}
+
+void HttpServer::readFromSocket()
+{
+    auto *socket = qobject_cast<AbstractTcpSocket *>(QObject::sender());
+
+    if (socket != nullptr)
+    {
+        readFromSocket(std::shared_ptr<AbstractTcpSocket>());
+    }
+}
+
+void HttpServer::readFromSocket(std::shared_ptr<AbstractTcpSocket> socket)
+{
+    std::shared_ptr<AbstractTcpSocket> ownedSocket = std::move(socket);
+    m_connectedSockets[ownedSocket] = 0;
+
+    qDebug() << QString::fromUtf8(ownedSocket->readLine());
 }

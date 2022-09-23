@@ -6,6 +6,8 @@
 #include <QString>
 #include <QtGlobal>
 
+#include <memory>
+
 class AbstractTcpSocket;
 
 class AbstractTcpServer : public QObject
@@ -21,7 +23,7 @@ public:
 
     virtual bool listen(const QHostAddress &address = QHostAddress::Any, quint16 port = 0) = 0;
 
-    virtual AbstractTcpSocket *nextPendingConnection() = 0;
+    virtual std::unique_ptr<AbstractTcpSocket> nextPendingConnection() = 0;
 
 signals:
     void newConnection();

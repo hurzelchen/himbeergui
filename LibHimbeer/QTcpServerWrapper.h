@@ -8,22 +8,24 @@
 #include <QString>
 #include <QtGlobal>
 
+#include <memory>
+
 class AbstractTcpSocket;
 class QTcpServer;
 
 class QTcpServerWrapper : public AbstractTcpServer
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 public:
     explicit QTcpServerWrapper(QObject *parent = nullptr);
-    virtual ~QTcpServerWrapper() = default;
 
     void close() override;
 
     bool listen(const QHostAddress &address = QHostAddress::Any, quint16 port = 0) override;
 
-    AbstractTcpSocket *nextPendingConnection() override;
+    std::unique_ptr<AbstractTcpSocket> nextPendingConnection() override;
 
 private:
     QTcpServer *m_implementation;

@@ -3,6 +3,9 @@
 #include "QTcpSocketWrapper.h"
 
 #include <QTcpServer>
+#include <QTcpSocket>
+
+#include <memory>
 
 class AbstractTcpSocket;
 class QTcpSocket;
@@ -24,16 +27,14 @@ bool QTcpServerWrapper::listen(const QHostAddress &address, quint16 port)
     return m_implementation->listen(address, port);
 }
 
-AbstractTcpSocket *QTcpServerWrapper::nextPendingConnection()
+std::unique_ptr<AbstractTcpSocket> QTcpServerWrapper::nextPendingConnection()
 {
     QTcpSocket *socket = m_implementation->nextPendingConnection();
 
     if (nullptr != socket)
     {
-        return new QTcpSocketWrapper(socket, this);
+        return std::make_unique<QTcpSocketWrapper>(std::unique_ptr<QTcpSocket>(socket), this);
     }
-    else
-    {
-        return nullptr;
-    }
+
+    return {};
 }

@@ -36,7 +36,8 @@ repos:
                '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
                '-ILibHimbeer/']
       - id: cppcheck
-        args: ['--language=c++']
+        args: ['--language=c++',
+               '--enable=all']
       - id: cpplint
         args: ['--filter=-build/header_guard,
                          -build/include_order,

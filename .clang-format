@@ -1,9 +1,14 @@
 ---
 BasedOnStyle: GNU
 AccessModifierOffset: -4
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
+BinPackArguments: false
+BinPackParameters: false
 BreakBeforeBraces: Custom
 BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: AfterColon

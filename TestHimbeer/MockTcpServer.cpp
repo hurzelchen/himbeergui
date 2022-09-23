@@ -2,6 +2,7 @@
 
 #include "MockTcpSocket.h"
 
+#include <memory>
 class AbstractTcpSocket;
 
 MockTcpServer::MockTcpServer(QObject *parent)
@@ -34,14 +35,14 @@ void MockTcpServer::mockRequest(const QByteArray &requestContent)
     emit newConnection();
 }
 
-AbstractTcpSocket *MockTcpServer::nextPendingConnection()
+std::unique_ptr<AbstractTcpSocket> MockTcpServer::nextPendingConnection()
 {
     if (m_mockRequests.count() > 0)
     {
         MockRequest mockRequest = m_mockRequests.takeFirst();
 
-        return new MockTcpSocket(mockRequest.requestData, this);
+        return std::make_unique<MockTcpSocket>(mockRequest.requestData, this);
     }
 
-    return nullptr;
+    return {};
 }

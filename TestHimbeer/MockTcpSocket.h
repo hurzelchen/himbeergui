@@ -9,12 +9,11 @@
 
 class MockTcpSocket : public AbstractTcpSocket
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 public:
-    explicit MockTcpSocket(const QByteArray &requestData, QObject *parent = nullptr);
-
-    const QByteArray &requestData() const;
+    explicit MockTcpSocket(QByteArray requestData, QObject *parent = nullptr);
 
 private:
     QByteArray m_requestData;
