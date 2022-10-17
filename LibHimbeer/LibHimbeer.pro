@@ -34,3 +34,6 @@ OTHER_FILES += \
     include.pri
 
 include(../Global.pri)
+
+DISTFILES += \
+    LibHimbeer.pri
