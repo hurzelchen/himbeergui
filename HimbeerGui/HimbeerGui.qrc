@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>JsClockWidget/jsclock.html</file>
+        <file>JsClockWidget/segment-display.js</file>
+    </qresource>
+</RCC>

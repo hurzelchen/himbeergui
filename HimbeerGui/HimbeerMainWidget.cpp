@@ -1,10 +1,12 @@
 #include "HimbeerMainWidget.h"
 
 #include "HttpServer.h"
+#include "JsClockWidget.h"
 
 #include <QStaticStringData>
 #include <QStringLiteral>
 #include <QThread>
+#include <QVBoxLayout>
 
 HimbeerMainWidget::HimbeerMainWidget(QWidget *parent)
     : QWidget{parent},
@@ -12,6 +14,13 @@ HimbeerMainWidget::HimbeerMainWidget(QWidget *parent)
       m_networkThread{new QThread(this)}
 {
     setStyleSheet(QStringLiteral("background-color: #000000;"));
+
+    auto *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
+    setLayout(layout);
+
+    auto *clockWidget = new JsClockWidget(this);
+    layout->addWidget(clockWidget);
 
     m_httpServer->moveToThread(m_networkThread);
 

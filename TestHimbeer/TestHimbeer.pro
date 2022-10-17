@@ -6,8 +6,6 @@ QT = \
     network \
     widgets \
 
-include(../LibHimbeer/include.pri)
-
 SOURCES += \
     MockTcpServer.cpp \
     MockTcpSocket.cpp \
@@ -16,3 +14,6 @@ SOURCES += \
 HEADERS += \
     MockTcpServer.h \
     MockTcpSocket.h
+
+include(../LibHimbeer/LibHimbeer.pri)
+include(../Global.pri)

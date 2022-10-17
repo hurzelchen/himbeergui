@@ -35,3 +35,4 @@ IncludeCategories:
 IncludeBlocks: Regroup
 PackConstructorInitializers: Never
 SpaceBeforeParens: ControlStatements
+Standard: c++17

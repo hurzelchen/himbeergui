@@ -10,17 +10,22 @@ QT = \
     core \
     gui \
     network \
+    webenginewidgets \
     widgets \
 
-include(../LibHimbeer/include.pri)
-
-equals(QT_ARCH, arm64) {
-    LIBS += -L/usr/lib/aarch64-linux-gnu/
-}
-
 HEADERS += \
-    HimbeerMainWidget.h
+    AbstractHimbeerWidget.h \
+    HimbeerMainWidget.h \
+    JsClockWidget.h
 
 SOURCES = \
+    AbstractHimbeerWidget.cpp \
     HimbeerMainWidget.cpp \
+    JsClockWidget.cpp \
     main.cpp
+
+RESOURCES += \
+    HimbeerGui.qrc
+
+include(../LibHimbeer/LibHimbeer.pri)
+include(../Global.pri)

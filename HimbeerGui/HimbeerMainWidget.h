@@ -10,11 +10,19 @@ class QThread;
 
 class HimbeerMainWidget : public QWidget
 {
+    // NOLINTNEXTLINE
     Q_OBJECT
 
 public:
     explicit HimbeerMainWidget(QWidget *parent = nullptr);
-    virtual ~HimbeerMainWidget();
+
+    HimbeerMainWidget(const HimbeerMainWidget &) = delete;
+    HimbeerMainWidget(HimbeerMainWidget &&) = delete;
+
+    ~HimbeerMainWidget() override;
+
+    HimbeerMainWidget &operator=(const HimbeerMainWidget &) = delete;
+    HimbeerMainWidget &operator=(HimbeerMainWidget &&) = delete;
 
 private:
     HttpServer *m_httpServer;

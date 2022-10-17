@@ -33,6 +33,7 @@ repos:
                '-I/usr/include/x86_64-linux-gnu/qt5/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
+               '-I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets/',
                '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
                '-ILibHimbeer/']
       - id: cppcheck
@@ -62,6 +63,7 @@ repos:
               '-isystem/usr/include/x86_64-linux-gnu/qt5/',
               '-isystem/usr/include/x86_64-linux-gnu/qt5/QtCore/',
               '-isystem/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
+              '-isystem/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets/',
               '-isystem/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
               '-ILibHimbeer/']
        entry: env CLAZY_IGNORE_DIRS=/usr/.* hurzelchen-clazy
@@ -77,5 +79,6 @@ repos:
               '-I/usr/include/x86_64-linux-gnu/qt5/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtNetwork/',
+              '-I/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtWidgets/',
               '-ILibHimbeer/']

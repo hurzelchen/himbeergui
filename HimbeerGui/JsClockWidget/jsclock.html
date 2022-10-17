@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SegmentDisplay</title>
+
+    <script type="text/javascript" src="segment-display.js"></script>
+    <script type="text/javascript">
+
+      var display = new SegmentDisplay("display");
+      display.pattern         = "##:##:##";
+      display.cornerType      = 2;
+      display.displayType     = 7;
+      display.displayAngle    = 9;
+      display.digitHeight     = 20;
+      display.digitWidth      = 12;
+      display.digitDistance   = 2;
+      display.segmentWidth    = 3;
+      display.segmentDistance = 0.5;
+      display.colorOn         = "#ff0000";
+      display.colorOff        = "#333333";
+
+      animate();
+
+      function animate() {
+        var time    = new Date();
+        var hours   = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var value   = ((hours < 10) ? ' ' : '') + hours
+                    + ':' + ((minutes < 10) ? '0' : '') + minutes
+                    + ':' + ((seconds < 10) ? '0' : '') + seconds;
+        display.setValue(value);
+        window.setTimeout('animate()', 100);
+      }
+
+    </script>
+
+  </head>
+
+  <body style="background-color: #000000">
+    <div style="padding: 100px 100px">
+      <div style="position: absolute; left: 100px; top: 100px; width: 1080px; height: 200px">
+        <canvas id="display" width="1080" height="200"></canvas>
+      </div>
+    </div>
+  </body>
+</html>

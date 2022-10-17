@@ -32,3 +32,5 @@ SOURCES += \
 
 OTHER_FILES += \
     include.pri
+
+include(../Global.pri)
