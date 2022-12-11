@@ -12,6 +12,8 @@ class QWidget;
 JsClockWidget::JsClockWidget(QWidget *parent)
     : QWebEngineView(parent)
 {
+    setCursor(Qt::BlankCursor);
+
     QFile htmlFile(QStringLiteral(":/JsClockWidget/jsclock.html"));
 
     if (htmlFile.open(QIODevice::ReadOnly))

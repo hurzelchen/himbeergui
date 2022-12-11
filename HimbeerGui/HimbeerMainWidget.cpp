@@ -15,6 +15,8 @@ HimbeerMainWidget::HimbeerMainWidget(QWidget *parent)
 {
     setStyleSheet(QStringLiteral("background-color: #000000;"));
 
+    setCursor(Qt::BlankCursor);
+
     auto *layout = new QVBoxLayout(this);
     layout->setMargin(0);
     setLayout(layout);
